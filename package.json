@@ -1,7 +1,7 @@
 {
   "name": "grunt-betajs-docs-compile",
   "description": "Build BetaJS documentations based on JSDOC.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/betajs/grunt-betajs-docs-compile",
   "author": {
     "name": "Oliver Friedmann",

@@ -25,7 +25,7 @@ grunt.loadNpmTasks('grunt-jsdoc');
 				src : sources,
 				options : {
 					destination : '../',
-					template : 'node_modules/grunt-jsdoc/node_modules/grunt-betajs-docs-compile',
+					template : 'node_modules/grunt-betajs-docs-compile',
 					configure : './jsdoc.conf.json',
 					tutorials : './tutorials'
 				}
