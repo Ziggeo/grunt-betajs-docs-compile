@@ -1,0 +1,11 @@
+<?js function toc(tutorials, tutorial, ancestors) { ?>
+<ul>
+	<?js tutorials.children.forEach(function(entry) { ?>
+		<li><a href="<?js= entry.link ?>"><?js= entry.title ?></a> 
+			<?js if (entry == tutorial || (ancestors.length > 0 && entry == ancestors[0])) toc(entry, tutorial, ancestors.slice(1)); ?>
+		</li>
+	<?js }); ?>
+</ul>
+<?js } ?>
+
+<?js toc(tutorials, tutorial, ancestors.slice(1)); ?>
