@@ -1,5 +1,6 @@
 var helper = require("jsdoc/util/templateHelper");
 var fileSupport = require(__dirname + "/fileSupport");
+var markdown = require("jsdoc/util/markdown"); 
 
 var envcfg = env.conf.templates || {};
 
@@ -7,7 +8,8 @@ module.exports = function(data, opts, tutorials) {
 	return {
 		globals : {
 			helper : helper,
-			fileSupport: fileSupport
+			fileSupport: fileSupport,
+			markdown: markdown
 		},
 		paths : {
 			templates : envcfg.templates || opts.template + "/templates",
@@ -46,6 +48,8 @@ module.exports = function(data, opts, tutorials) {
 		meta : {
 			jsdoc_version : env.version.number
 		},
-		data : {}
+		data : {
+			pages: env.conf.pages || {}
+		} 
 	};
 };

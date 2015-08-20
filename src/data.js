@@ -40,6 +40,23 @@ function processTutorials(environment, hierarchy, tutorials) {
 
 /*
  * 
+ * Processes pages
+ * 
+ * 
+ */
+
+function processPage(environment, page, key) {
+	page.content = environment.globals.markdown.getParser()(environment.globals.fileSupport.readFile(page.source))
+	page.url = environment.globals.helper.getUniqueFilename(key);
+	return page;
+}
+
+
+
+
+
+/*
+ * 
  * Processes examples in code by auto-detecting programming language and extracting the potential title
  * 
  * 
@@ -210,6 +227,9 @@ module.exports = function(environment) {
 	environment.data.tutorials = processTutorials(environment,
 			environment.raw.tutorialsHierarchy, environment.raw.tutorials);
 	helper.setTutorials(environment.data.tutorials);
+	
+	for (var page in environment.data.pages)
+		environment.data.pages[page] = processPage(environment, environment.data.pages[page], page);
 	
 	var processed = helper.prune(environment.raw.parsed);
 	environment.data.processed = processed;

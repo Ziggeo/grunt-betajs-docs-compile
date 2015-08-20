@@ -7,10 +7,18 @@ exports.publish = function (data, opts, tutorials) {
 	
 	fileSupport.copyDirectory(environment.paths.assets, environment.paths.output);
 	
-	render.renderPageToFile("index.html", "index", {
+	render.renderPageToFile("index.html", "page", {
 		title: environment.strings.mainpagetitle,
-		readme: environment.strings.readme
+		content: environment.strings.readme
 	});
+	
+	for (var key in environment.data.pages) {
+		var page = environment.data.pages[key];
+		render.renderPageToFile(page.url, "page", {
+			title: page.title,
+			content: page.content
+		});
+	}
 
 	function renderTutorial(tutorial, ancestors) {
 		render.renderPageToFile(tutorial.link, "tutorial", {

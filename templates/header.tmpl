@@ -11,6 +11,14 @@
 			<li>
 				<a href="<?js= this.data.tutorials.children[0].link ?>">Guides</a>
 			</li>
+			<?js for (var key in this.data.pages) { ?>
+				<?js var page = this.data.pages[key]; ?>
+				<?js if (page.navbar) { ?>
+					<li>
+						<a href="<?js= page.url ?>"><?js= page.title ?></a>
+					</li>
+				<?js } ?>
+			<?js } ?>
 		</ul>
 	</div>
 </div>
