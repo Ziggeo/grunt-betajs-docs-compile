@@ -45,6 +45,11 @@ exports.publish = function (data, opts, tutorials) {
 	
 	renderTutorials(environment.data.tutorials, []);
 	
+	render.renderPageToFile("tutorials.html", "tutorial-single", {
+		title: "Guides",
+		tutorials: environment.data.tutorials
+	});
+	
 	if (environment.config.outputSourceFiles) {
 		for (var resolved in environment.data.sourceFiles) {
 			var entry = environment.data.sourceFiles[resolved];

@@ -11,7 +11,30 @@ function hashToLink(helper, doclet, hash) {
 
 
 
-	
+
+
+/*
+ * 
+ * Generates a tutorial
+ * 
+ * 
+ */
+
+function generateTutorial(parent, name, title, content) {
+	return {
+		title: title || "",
+		content: content || "",
+		type: 2,
+		parent: parent,
+		name: (parent ? parent.name + "-" : "") + name,
+		link: 'tutorial-' + (parent ? parent.name + "-" : "") + name + '.html',
+		children: [],
+		parse: function () {
+			return content || "";
+		}
+	};
+}
+
 /*
  * 
  * Sorts tutorials with respect to their original order (which is not preserved by JSDOC)
@@ -19,7 +42,7 @@ function hashToLink(helper, doclet, hash) {
  * 
  */
 
-function processTutorials(environment, hierarchy, tutorials) {
+function processTutorials(environment, hierarchy, tutorials, emptyTutorials) {
 	var helper = environment.globals.helper;
 	if (!hierarchy || !tutorials.children)
 		return tutorials;
@@ -30,9 +53,13 @@ function processTutorials(environment, hierarchy, tutorials) {
 	});
 	tutorials.children = [];
 	for (var key in hierarchy) {
-		if (key in children)
+		if (key in children) {
 			tutorials.children.push(processTutorials(environment,
 					hierarchy[key].children, children[key]));
+		} else if (emptyTutorials) {
+			tutorials.children.push(processTutorials(environment,
+					hierarchy[key].children, generateTutorial(tutorials, key, hierarchy[key].title), emptyTutorials));
+		}
 	}
 	return tutorials;
 }
@@ -225,7 +252,7 @@ module.exports = function(environment) {
 	
 	helper.setTutorials(environment.raw.tutorials);
 	environment.data.tutorials = processTutorials(environment,
-			environment.raw.tutorialsHierarchy, environment.raw.tutorials);
+			environment.raw.tutorialsHierarchy, environment.raw.tutorials, environment.config.emptyTutorials);
 	helper.setTutorials(environment.data.tutorials);
 	
 	for (var page in environment.data.pages)

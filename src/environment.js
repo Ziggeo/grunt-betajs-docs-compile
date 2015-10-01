@@ -40,10 +40,13 @@ module.exports = function(data, opts, tutorials) {
 			linenums : envcfg.linenums,
 		},
 		urls : {
-			index : helper.getUniqueFilename('index')
+			index : helper.getUniqueFilename('index'),
+			tutorials : helper.getUniqueFilename('tutorials'),
 		},
 		config : {
-			outputSourceFiles : envcfg.outputSourceFiles === true
+			outputSourceFiles : envcfg.outputSourceFiles === true,
+			emptyTutorials: envcfg.emptyTutorials || false,
+			singleTutorials: envcfg.singleTutorials || false
 		},
 		meta : {
 			jsdoc_version : env.version.number

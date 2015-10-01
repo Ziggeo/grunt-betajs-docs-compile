@@ -9,7 +9,7 @@
 				<a href="<?js= this.urls.index ?>"><?js= this.strings.systemName ?></a>
 			</li>
 			<li>
-				<a href="<?js= this.data.tutorials.children[0].link ?>">Guides</a>
+				<a href="<?js= this.config.singleTutorials ? this.urls.tutorials : this.data.tutorials.children[0].link ?>">Guides</a>
 			</li>
 			<?js for (var key in this.data.pages) { ?>
 				<?js var page = this.data.pages[key]; ?>
