@@ -4,7 +4,7 @@
     "title": "Introduction",
     "children" : {
       "helloworld": {
-        "title": "Hello World",
+        "title": "Hello World"
       }
     }
   }

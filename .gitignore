@@ -1,1 +1,11 @@
-temp
+/node_modules
+/temp
+.DS_Store
+.sass-cache
+node_modules
+/docs
+browserstack.json
+BrowserStackLocal
+.idea
+/.idea
+jsdoc.conf.json
