@@ -2,10 +2,19 @@ exports.publish = function (data, opts, tutorials) {
 	
 	var environment = require(__dirname + "/src/environment")(data, opts, tutorials);
 	require(__dirname + "/src/data")(environment);
+	require(__dirname + "/src/assets")(environment);
 	var render = require(__dirname + "/src/render")(environment);
 	var fileSupport = require(__dirname + "/src/fileSupport");
 	
-	fileSupport.copyDirectory(environment.paths.assets, environment.paths.output);
+	environment.assets.forEach(function (obj) {
+		if (typeof obj.from === "string")
+			fileSupport.copyDirectory(obj.from, obj.to);
+		else {
+			obj.from.forEach(function (file) {
+				fileSupport.copyFileToDirectory(file, obj.to);
+			});
+		}
+	});
 	
 	render.renderPageToFile("index.html", "page", {
 		title: environment.strings.mainpagetitle,

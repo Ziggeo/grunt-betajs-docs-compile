@@ -12,7 +12,11 @@ module.exports = function(data, opts, tutorials) {
 			markdown: markdown
 		},
 		paths : {
-			templates : envcfg.templates || opts.template + "/templates",
+			templateDirectores: [
+                envcfg.templates,
+                opts.template + "/templates/" + envcfg.baseTemplate,
+			    opts.template + "/templates/default"
+			],
 			tutorials : opts.tutorials,
 			output : env.opts.destination,
 			assets : opts.template + "/assets",

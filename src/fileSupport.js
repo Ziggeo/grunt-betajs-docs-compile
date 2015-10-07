@@ -26,6 +26,11 @@ module.exports = {
 		return files;
 	},
 	
+	copyFileToDirectory: function (fileName, dest) {
+		fs.mkPath(dest);
+		fs.copyFileSync(fileName, dest);
+	},
+	
 	copyDirectory: function (source, dest) {
 		fs.ls(source, 3).forEach(function (fileName) {
 			var destination = fs.toDir(fileName.replace(source, dest));

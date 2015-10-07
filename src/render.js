@@ -1,10 +1,22 @@
 module.exports = function (environment) {
 	var _ = require("underscore");
+	var fs = require("jsdoc/fs");
 
 	return {
 		
+		readTemplate: function (templateKey) {
+			var ts = environment.paths.templateDirectores;
+			
+			for (var i = 0; i < ts.length; ++i) {
+				var fname = ts[i] + "/" + templateKey + ".tmpl";
+				if (fs.existsSync(fname))
+					return environment.globals.fileSupport.readFile(fname);
+			}
+			throw ("Template '" + templateKey + "' not found.");
+		},
+
 		renderTemplate: function (templateName, data) {
-			return (_.template(environment.globals.fileSupport.readFile(environment.paths.templates + "/" + templateName + ".tmpl"), null, {
+			return (_.template(this.readTemplate(templateName), null, {
 		        evaluate: /<\?js([\s\S]+?)\?>/g,
 		        interpolate: /<\?js=([\s\S]+?)\?>/g,
 		        escape: /<\?js~([\s\S]+?)\?>/g
