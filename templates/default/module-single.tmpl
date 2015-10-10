@@ -1,0 +1,31 @@
+<section class="tutorial-section">
+
+<div class='container bs-docs-container'>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="bs-sidebar hidden-print" role="complementary">
+                <ul class="nav bs-sidenav">
+                    <?js modules.forEach(function(entry) { ?>
+                        <li><a href="#<?js= entry.longname ?>"><?js= entry.name ?></a> 
+                        </li>
+                    <?js }) ?>
+                </ul>
+             </div>
+        </div>
+        <div class="col-md-8">
+            <?js modules.forEach(function(entry) { ?>
+                <header id="<?js= entry.longname ?>">
+                    <h2><?js= entry.name ?></h2>
+                </header>
+                <article>
+                    TODO
+                </article>
+            <?js }) ?>
+        </div>
+    <div>
+</div>
+
+</section>
+
+<script src="scripts/bs-sidebar.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/bs-sidebar.css" />

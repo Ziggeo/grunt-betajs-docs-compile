@@ -206,12 +206,14 @@ function processSignatures(helper, doclet) {
  */
 
 function attachModuleSymbols( doclets, modules ) {
+	var doop = require('jsdoc/util/doop');
+	
 	var symbols = {};
 
-    // build a lookup table
+	// build a lookup table
     doclets.forEach(function(symbol) {
-        symbols[symbol.longname] = symbols[symbol.longname] || [];
-        symbols[symbol.longname].push(symbol);
+        symbols[symbol.memberof] = symbols[symbol.memberof] || [];
+        symbols[symbol.memberof].push(symbol);
     });
 
     return modules.map(function(module) {
@@ -313,6 +315,6 @@ module.exports = function(environment) {
 	var members = helper.getMembers(processed);
 	environment.data.members = members;
 	
-	attachModuleSymbols(helper.find(processed,  { kind : ['class', 'function'], longname : {left : 'module:'} } ), members.modules );
+	attachModuleSymbols(helper.find(processed,  { kind : ['class', 'function'] } ), members.modules );
 	
 };
