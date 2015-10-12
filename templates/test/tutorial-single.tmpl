@@ -1,0 +1,39 @@
+<section class="tutorial-section">
+
+<div>Hi</div>
+<ba-test></ba-test>
+
+<div class='container'>
+    <div class="row">
+        <div class="col-md-4">
+            <?js function toc(tutorials) { ?>
+            <ul>
+                <?js tutorials.children.forEach(function(entry) { ?>
+                    <li><a href="#<?js= entry.name ?>"><?js= entry.title ?></a> 
+                    </li>                        <?js toc(entry); ?>
+                <?js }); ?>
+            </ul>
+            <?js } ?>
+            
+            <?js toc(tutorials); ?>
+        </div>
+        <div class="col-md-8">
+            <?js function tut(tutorials) { ?>
+            <header id="<?js= tutorials.name ?>">
+                <h2><?js= tutorials.title ?></h2>
+            </header>
+            
+            <article>
+                <?js= tutorials.parse() ?>
+            </article>
+            <?js tutorials.children.forEach(function(entry) { ?>
+                <?js tut(entry); ?>
+            <?js }); ?>
+            <?js } ?>
+            
+            <?js tut(tutorials); ?>
+        </div>
+    <div>
+</div>
+
+</section>
