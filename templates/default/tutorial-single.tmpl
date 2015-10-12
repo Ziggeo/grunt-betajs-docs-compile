@@ -1,19 +1,21 @@
 <section class="tutorial-section">
 
-<div class='container'>
+<div class='container bs-docs-container'>
     <div class="row">
         <div class="col-md-4">
-            <?js function toc(tutorials) { ?>
-            <ul>
-                <?js tutorials.children.forEach(function(entry) { ?>
-                    <li><a href="#<?js= entry.name ?>"><?js= entry.title ?></a> 
-                        <?js toc(entry); ?>
-                    </li>
-                <?js }); ?>
-            </ul>
-            <?js } ?>
-            
-            <?js toc(tutorials); ?>
+            <div class="bs-sidebar hidden-print" role="complementary">
+                <?js function toc(tutorials, level) { ?>
+                <ul class="nav <?js= level === 0 ? 'bs-sidenav' : '' ?>">
+                    <?js tutorials.children.forEach(function(entry) { ?>
+                        <li><a href="#<?js= entry.name ?>"><?js= entry.title ?></a> 
+                            <?js toc(entry, level+1); ?>
+                        </li>
+                    <?js }); ?>
+                </ul>
+                <?js } ?>
+                
+                <?js toc(tutorials, 0); ?>
+             </div>
         </div>
         <div class="col-md-8">
             <?js function tut(tutorials) { ?>
@@ -35,3 +37,6 @@
 </div>
 
 </section>
+
+<script src="scripts/bs-sidebar.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/bs-sidebar.css" />

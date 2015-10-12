@@ -68,24 +68,10 @@ exports.publish = function (data, opts, tutorials) {
 			}, false);
 		}
 	}
+	
+	render.renderPageToFile("modules.html", "module-single", {
+		title: "Reference",
+		modules: environment.data.members.modules
+	});
 
-
-	/*
-	var taffy = require( 'taffydb' ).taffy;
-	
-	var renderModule = function (module) {
-		renderPageToFile("module.html", "module", {
-			title: "Module: " + module.name,
-			module: module
-		});
-	};
-	
-	for ( var longname in helper.longnameToUrl ) {
-		helper.find(taffy(members.modules), {longname : longname}).forEach(function (entry) {
-			if (entry.kind == "module")
-			//	renderModule(entry);
-		});
-	}
-	
-	*/
 }

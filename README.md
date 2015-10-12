@@ -79,7 +79,8 @@ This is mostly preserved and copied from [Ink-Docstrap](https://www.npmjs.com/pa
 		
 		"template": "my/local/template/directory",
         "emptyTutorials": false || true,
-        "singleTutorials": false || true
+        "singleTutorials": false || true,
+        "singleModules": false || true
 	},
 
     ...

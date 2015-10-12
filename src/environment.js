@@ -46,11 +46,13 @@ module.exports = function(data, opts, tutorials) {
 		urls : {
 			index : helper.getUniqueFilename('index'),
 			tutorials : helper.getUniqueFilename('tutorials'),
+			modules : helper.getUniqueFilename("modules")
 		},
 		config : {
 			outputSourceFiles : envcfg.outputSourceFiles === true,
 			emptyTutorials: envcfg.emptyTutorials || false,
-			singleTutorials: envcfg.singleTutorials || false
+			singleTutorials: envcfg.singleTutorials || false,
+			singleModules: envcfg.singleModules || false
 		},
 		meta : {
 			jsdoc_version : env.version.number
