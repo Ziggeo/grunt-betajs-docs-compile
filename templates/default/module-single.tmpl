@@ -18,7 +18,11 @@
                     <h2><?js= entry.name ?></h2>
                 </header>
                 <article>
-                    TODO
+                    <?js entry.modules.forEach(function(item) { ?>
+                        <?js if (item.kind === 'function') { ?>
+                            <p>function <strong><?js= item.id.substr(1) ?></strong>(...)</p>
+                        <?js } ?>
+                    <?js }) ?>
                 </article>
             <?js }) ?>
         </div>
