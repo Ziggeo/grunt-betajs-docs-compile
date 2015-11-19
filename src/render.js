@@ -20,7 +20,7 @@ module.exports = function (environment) {
 		        evaluate: /<\?js([\s\S]+?)\?>/g,
 		        interpolate: /<\?js=([\s\S]+?)\?>/g,
 		        escape: /<\?js~([\s\S]+?)\?>/g
-		    })).call(environment, data || {});
+		    })).call(environment, _.extend({render: this}, data));
 		},
 		
 		renderPage: function (templateName, data) {

@@ -18,7 +18,11 @@
                     <h2><?js= entry.name ?></h2>
                 </header>
                 <article>
-                    TODO
+                    <?js entry.modules.forEach(function(item) { ?>
+                        <?js if (item.kind === 'function') { ?>
+                            <?js= render.renderTemplate('item-function', {item: item}) ?>
+                        <?js } ?>
+                    <?js }) ?>
                 </article>
             <?js }) ?>
         </div>

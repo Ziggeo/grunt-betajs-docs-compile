@@ -1,0 +1,10 @@
+<p>function <strong><?js= item.id.substr(1) ?></strong>(<?js= item.params.map(function (param) { return param.name; }).join(', ') ?>)</p>
+<?js if (item.description) { ?>
+<div class="description">
+    <?js= item.description ?>
+</div>
+<?js } ?>
+Parameters:
+<?js= render.renderTemplate('function-params', {params: item.params}) ?>
+Result:
+<?js= render.renderTemplate('function-params', {params: item.params}) ?>
