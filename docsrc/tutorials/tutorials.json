@@ -7,6 +7,19 @@
         "title": "Hello World"
       }
     }
+  },
+
+  "test": {
+    "title": "Test",
+
+    "children" : {
+      "test1": {
+        "title": "Test 1"
+      },
+      "test2": {
+        "title": "Test 2"
+      }
+    }
   }
 
 }

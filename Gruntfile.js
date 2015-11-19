@@ -26,6 +26,22 @@ module.exports = function(grunt) {
 					}
 				}
 			},
+			wget : {
+				dependencies : {
+					options : {
+						overwrite : true
+					},
+					files : {
+						"./assets/scripts/jquery-hashchange.js" : "http://cdn.rawgit.com/cowboy/jquery-hashchange/master/jquery.ba-hashchange.js",
+						"./assets/scripts/scoped.js" : "https://raw.githubusercontent.com/betajs/betajs-scoped/master/dist/scoped.js",
+						"./assets/scripts/beta.js" : "https://raw.githubusercontent.com/betajs/betajs/master/dist/beta.js",
+						//"./assets/scripts/betajs-ui.js" : "https://raw.githubusercontent.com/betajs/betajs-ui/master/dist/beta-ui.js",
+						"./assets/scripts/beta-browser.js" : "https://raw.githubusercontent.com/betajs/betajs-browser/master/dist/beta-browser-noscoped.js",
+						"./assets/scripts/betajs-dynamics-noscoped.js" : "https://raw.githubusercontent.com/betajs/betajs-dynamics/master/dist/betajs-dynamics-noscoped.js",
+						"./assets/scripts/jquery.js" : "https://raw.githubusercontent.com/google/closure-compiler/master/contrib/externs/jquery-1.9.js"
+					}
+				}
+			},
 			template : {
 				"jsdoc": {
 					options: {
@@ -83,7 +99,9 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-jsdoc');
+	grunt.loadNpmTasks('grunt-wget');
 	grunt.loadNpmTasks('grunt-template');
 
 	grunt.registerTask('docs', ['template:jsdoc', 'jsdoc', 'clean:jsdoc']);
+	grunt.registerTask('dependencies', [ 'wget:dependencies' ]);
 };

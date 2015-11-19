@@ -30,6 +30,7 @@
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-jsdoc": "",
+    "grunt-wget": "",
     "grunt-template": "",
     "grunt-contrib-clean" : ""
   },
