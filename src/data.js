@@ -53,12 +53,16 @@ function processTutorials(environment, hierarchy, tutorials, emptyTutorials) {
 	});
 	tutorials.children = [];
 	for (var key in hierarchy) {
-		if (key in children) {
-			tutorials.children.push(processTutorials(environment,
-					hierarchy[key].children, children[key]));
-		} else if (emptyTutorials) {
-			tutorials.children.push(processTutorials(environment,
-					hierarchy[key].children, generateTutorial(tutorials, key, hierarchy[key].title), emptyTutorials));
+		var processed = null;
+		if (key in children)
+			processed = processTutorials(environment, hierarchy[key].children, children[key]);
+		else if (emptyTutorials)
+			processed = processTutorials(environment, hierarchy[key].children, generateTutorial(tutorials, key, hierarchy[key].title), emptyTutorials);
+		if (processed) {
+			for (var inner in hierarchy[key])
+				if (inner != "title" && inner != "children")
+					processed[inner] = hierarchy[key][inner];
+			tutorials.children.push(processed);
 		}
 	}
 	return tutorials;

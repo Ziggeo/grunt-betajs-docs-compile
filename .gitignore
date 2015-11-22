@@ -9,3 +9,4 @@ BrowserStackLocal
 .idea
 /.idea
 jsdoc.conf.json
+npm-debug.log
