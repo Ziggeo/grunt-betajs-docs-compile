@@ -18,7 +18,7 @@ if you load the helloworld.html displayed in the box below in the Browser.
 		<title>Hello World</title>
 			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 			<script src="vendors/beta.js"></script>
-			<script src="vendors/beta-browser-noscoped.js"></script>
+			<script src="vendors/betajs-browser-noscoped.js"></script>
 		<script src="vendors/betajs-dynamics.js"></script>
 	</head>
 	<body>

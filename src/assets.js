@@ -25,7 +25,7 @@ module.exports = function (environment) {
 		    environment.paths.assets + "/scripts/jquery.js",
 		    environment.paths.assets + "/scripts/bs-sidebar.js",
 		    environment.paths.assets + "/scripts/beta.js",
-		    environment.paths.assets + "/scripts/beta-browser.js",
+		    environment.paths.assets + "/scripts/betajs-browser.js",
 		    environment.paths.assets + "/scripts/betajs-dynamics.js"
 	    ],
 		to: environment.paths.output + "/scripts"

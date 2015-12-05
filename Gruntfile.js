@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 						"./assets/scripts/scoped.js" : "https://raw.githubusercontent.com/betajs/betajs-scoped/master/dist/scoped.js",
 						"./assets/scripts/beta.js" : "https://raw.githubusercontent.com/betajs/betajs/master/dist/beta.js",
 						//"./assets/scripts/betajs-ui.js" : "https://raw.githubusercontent.com/betajs/betajs-ui/master/dist/beta-ui.js",
-						"./assets/scripts/beta-browser.js" : "https://raw.githubusercontent.com/betajs/betajs-browser/master/dist/beta-browser-noscoped.js",
+						"./assets/scripts/betajs-browser.js" : "https://raw.githubusercontent.com/betajs/betajs-browser/master/dist/betajs-browser-noscoped.js",
 						"./assets/scripts/betajs-dynamics-noscoped.js" : "https://raw.githubusercontent.com/betajs/betajs-dynamics/master/dist/betajs-dynamics-noscoped.js",
 						"./assets/scripts/jquery.js" : "https://raw.githubusercontent.com/google/closure-compiler/master/contrib/externs/jquery-1.9.js"
 					}
