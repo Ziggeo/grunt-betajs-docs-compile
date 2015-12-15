@@ -1,7 +1,7 @@
 {
   "name": "grunt-betajs-docs-compile",
   "description": "Build BetaJS documentations based on JSDOC.",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "homepage": "https://github.com/betajs/grunt-betajs-docs-compile",
   "author": {
     "name": "Oliver Friedmann",
@@ -25,17 +25,17 @@
     }
   ],
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ""
   },
   "devDependencies": {
-    "grunt": "~0.4.5",
+    "grunt": "",
     "grunt-jsdoc": "",
     "grunt-wget": "",
     "grunt-template": "",
     "grunt-contrib-clean" : ""
   },
   "peerDependencies": {
-    "grunt": "~0.4.5"
+    "grunt": ""
   },
   "keywords": [
     "gruntplugin"
