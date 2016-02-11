@@ -26,8 +26,7 @@ module.exports = function(data, opts, tutorials) {
 			readme : opts.readme,
 			parsed : data,
 			tutorials : tutorials,
-			tutorialsHierarchy : fileSupport.readJSON(opts.tutorials
-					+ "/tutorials.json")
+			tutorialsHierarchy : fileSupport.readJSON(opts.tutorials + "/tutorials.json")
 		},
 		strings : {
 			copyright : envcfg.copyright,
@@ -41,7 +40,7 @@ module.exports = function(data, opts, tutorials) {
 			theme : envcfg.theme || "simplex",
 			syntaxTheme : envcfg.syntaxTheme || "default",
 			highlightTutorialCode : envcfg.highlightTutorialCode,
-			linenums : envcfg.linenums,
+			linenums : envcfg.linenums
 		},
 		urls : {
 			index : helper.getUniqueFilename('index'),

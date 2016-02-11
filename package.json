@@ -1,43 +1,42 @@
 {
   "name": "grunt-betajs-docs-compile",
   "description": "Build BetaJS documentations based on JSDOC.",
-  "version": "0.0.14",
-  "homepage": "https://github.com/betajs/grunt-betajs-docs-compile",
-  "author": {
-    "name": "Oliver Friedmann",
-    "email": "info@betajs.com"
-  },
-  "contributors": [
-    "Oliver Friedmann",
-    "Victor Lingtnhal"
-  ],
+  "version": "0.0.16",
+	"homepage": "http://betajs.com",
+	"contributors": ["Oliver Friedmann", "Victor Lingenthal"],
+	"license": "Apache 2.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/betajs/grunt-betajs-docs-compile.git"
   },
-  "bugs": {
-    "url": "https://github.com/betajs/grunt-betajs-docs-compile/issues"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/betajs/grunt-betajs-docs-compile/blob/master/LICENSE-MIT"
-    }
-  ],
-  "engines": {
-    "node": ""
-  },
   "devDependencies": {
     "grunt": "",
+    "grunt-contrib-jshint": "",
     "grunt-jsdoc": "",
-    "grunt-wget": "",
     "grunt-template": "",
-    "grunt-contrib-clean" : ""
+    "grunt-contrib-clean" : "",
+    "betajs-compile": "betajs/betajs-compile"
   },
   "peerDependencies": {
     "grunt": ""
   },
   "keywords": [
     "gruntplugin"
-  ]
+  ],
+	"meta": {
+		"blog": "http://blog.betajs.com",
+		"twitter": "http://twitter.com/thebetajs",
+		"badges": {
+			"codeclimate": true,
+			"travis": false,
+			"npm": false
+		},
+		"credits": [
+			"[Ink-Docstrap](https://www.npmjs.com/package/ink-docstrap)"
+		],
+		"status": "Active, Production ready",
+		"compatability": {
+			"NodeJS": "0.10 - Latest" 
+		}
+	}   
 }

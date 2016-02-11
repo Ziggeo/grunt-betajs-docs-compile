@@ -1,17 +1,3 @@
-# grunt-betajs-docs-compile 0.0.16
-[![Code Climate](https://codeclimate.com/github/betajs/grunt-betajs-docs-compile/badges/gpa.svg)](https://codeclimate.com/github/betajs/grunt-betajs-docs-compile)
-
-
-Build BetaJS documentations based on JSDOC.
-
-## Status
-Active, Production ready
-
-
-
-## Getting Started
-
-
 This plugin requires Grunt `~0.4.5`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
@@ -102,42 +88,3 @@ This is mostly preserved and copied from [Ink-Docstrap](https://www.npmjs.com/pa
     }
 }
 ```
-
-
-
-## Links
-| Resource   | URL |
-| :--------- | --: |
-| Homepage   | [http://betajs.com](http://betajs.com) |
-| Git        | [git://github.com/betajs/grunt-betajs-docs-compile.git](git://github.com/betajs/grunt-betajs-docs-compile.git) |
-| Repository | [http://github.com/betajs/grunt-betajs-docs-compile](http://github.com/betajs/grunt-betajs-docs-compile) |
-| Blog       | [http://blog.betajs.com](http://blog.betajs.com) | 
-| Twitter    | [http://twitter.com/thebetajs](http://twitter.com/thebetajs) | 
-
-
-
-## Compatability (Tested)
-| Target | Versions |
-| :----- | -------: |
-| NodeJS | 0.10 - Latest |
-
-
-
-
-
-
-## Contributors
-
-- Oliver Friedmann
-- Victor Lingenthal
-
-
-## License
-
-Apache 2.0
-
-
-## Credits
-
-This software may include modified and unmodified portions of:
-- [Ink-Docstrap](https://www.npmjs.com/package/ink-docstrap)

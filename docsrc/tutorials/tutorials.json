@@ -1,25 +1,7 @@
 {
 
-  "intro": {
-    "title": "Introduction",
-    "children" : {
-      "helloworld": {
-        "title": "Hello World"
-      }
-    }
-  },
-
-  "test": {
-    "title": "Test",
-
-    "children" : {
-      "test1": {
-        "title": "Test 1"
-      },
-      "test2": {
-        "title": "Test 2"
-      }
-    }
+  "install": {
+    "title": "Getting Started"
   }
 
 }

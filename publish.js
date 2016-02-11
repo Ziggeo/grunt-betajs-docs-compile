@@ -23,10 +23,12 @@ exports.publish = function (data, opts, tutorials) {
 	
 	for (var key in environment.data.pages) {
 		var page = environment.data.pages[key];
-		render.renderPageToFile(page.url, "page", {
-			title: page.title,
-			content: page.content
-		});
+		if (page.content) {
+			render.renderPageToFile(page.url, "page", {
+				title: page.title,
+				content: page.content
+			});
+		}
 	}
 
 	function renderTutorial(tutorial, ancestors) {
@@ -45,7 +47,7 @@ exports.publish = function (data, opts, tutorials) {
 		var anc = ancestors.slice();
 		anc.push(tutorials);
 		tutorials.children.forEach(function (tutorial) {
-			renderTutorial(tutorial, anc)
+			renderTutorial(tutorial, anc);
 		});
 		tutorials.children.forEach(function (tutorial) {
 			renderTutorials(tutorial, anc);
@@ -74,4 +76,4 @@ exports.publish = function (data, opts, tutorials) {
 		modules: environment.data.members.modules
 	});
 
-}
+};

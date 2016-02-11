@@ -77,8 +77,10 @@ function processTutorials(environment, hierarchy, tutorials, emptyTutorials) {
  */
 
 function processPage(environment, page, key) {
-	page.content = environment.globals.markdown.getParser()(environment.globals.fileSupport.readFile(page.source))
-	page.url = environment.globals.helper.getUniqueFilename(key);
+	if (page.source) {
+		page.content = environment.globals.markdown.getParser()(environment.globals.fileSupport.readFile(page.source));
+		page.url = environment.globals.helper.getUniqueFilename(key);
+	}
 	return page;
 }
 
@@ -112,7 +114,7 @@ function processExample(environment, example) {
 		code: code || example,
 		lang: lang && config.styling.highlightTutorialCode ? lang : "javascript"
 	};
-};
+}
 
 
 /*
