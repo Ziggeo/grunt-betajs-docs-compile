@@ -1,0 +1,45 @@
+{
+  "name": "grunt-betajs-docs-compile",
+  "description": "Build BetaJS documentations based on JSDOC.",
+  "version": "0.0.16",
+  "contributors": [
+    "Oliver Friedmann",
+    "Victor Lingenthal"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git:\/\/github.com\/betajs\/grunt-betajs-docs-compile.git"
+  },
+  "devDependencies": {
+    "grunt": "",
+    "grunt-contrib-jshint": "",
+    "grunt-jsdoc": "",
+    "grunt-template": "",
+    "grunt-contrib-clean": "",    
+    "betajs-compile": "betajs\/betajs-compile"
+  },
+  "peerDependencies": {
+    "grunt": ""
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "engines": {
+    "node": ""
+  },
+  "meta": {
+    "badges": {
+      "codeclimate": true,
+      "travis": false,
+      "npm": false
+    },
+		"installdoc": "docsrc/common/install.md",
+		"summarydoc": "docsrc/common/summary.md",
+    "credits": [
+      "[Ink-Docstrap](https:\/\/www.npmjs.com\/package\/ink-docstrap)"
+    ],
+    "compatability": {
+      "NodeJS": "0.10 - Latest"
+    }
+  }
+}

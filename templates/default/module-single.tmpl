@@ -1,21 +1,12 @@
-<section class="tutorial-section">
-
-<div class='container bs-docs-container'>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="bs-sidebar hidden-print" role="complementary">
-                <ul class="nav bs-sidenav">
-                    <?js modules.forEach(function(entry) { ?>
-                        <li><a href="#<?js= entry.longname ?>"><?js= entry.name ?></a> 
-                        </li>
-                    <?js }) ?>
-                </ul>
-             </div>
-        </div>
-        <div class="col-md-8">
-            <?js modules.forEach(function(entry) { ?>
+<div class="col-md-8">
+	<div id="main">
+		<p>
+			This section is under construction.
+		</p>
+        <?js modules.forEach(function(entry) { ?>
+			<section class="tutorial-section">
                 <header id="<?js= entry.longname ?>">
-                    <h2><?js= entry.name ?></h2>
+                    <h1><?js= entry.name ?></h1>
                 </header>
                 <article>
                     <?js entry.modules.forEach(function(item) { ?>
@@ -24,12 +15,26 @@
                         <?js } ?>
                     <?js }) ?>
                 </article>
-            <?js }) ?>
-        </div>
-    <div>
+			</section>
+        <?js }) ?>
+	</div>
+</div>
+		
+<div class="clearfix">
 </div>
 
-</section>
+<div class="col-md-3">
+	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+</div>
 
-<script src="scripts/bs-sidebar.js"></script>
-<link type="text/css" rel="stylesheet" href="styles/bs-sidebar.css" />
+<script>
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			var id = $( heading ).attr( "id" );
+			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
+		},
+		selectors   : "#toc-content header>h1,#toc-content header>h2,#toc-content header>h3,#toc-content header>h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+</script>

@@ -11,6 +11,9 @@ module.exports = function(grunt) {
     /* External Configurations */
     .codeclimateTask()
     
+    /* Package */
+    .packageTask()
+    
     /* Markdown Files */
 	.readmeTask(null, {
 		installdoc: "./docsrc/tutorials/install.md"
@@ -25,6 +28,6 @@ module.exports = function(grunt) {
 
 	grunt.initConfig(gruntHelper.config);	
 
-	grunt.registerTask('default', ['lint', 'readme', 'license', 'codeclimate', 'docs']);
+	grunt.registerTask('default', ['package', 'lint', 'readme', 'license', 'codeclimate', 'docs']);
 
 };

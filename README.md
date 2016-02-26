@@ -4,9 +4,6 @@
 
 Build BetaJS documentations based on JSDOC.
 
-## Status
-Active, Production ready
-
 
 
 ## Getting Started
@@ -26,7 +23,12 @@ Once the plugin has been installed, it may be enabled via the jsdoc plugin insid
 grunt.loadNpmTasks('grunt-jsdoc');
 ```
 
-## The "jsdoc" task
+
+
+
+## Basic Usage
+
+
 
 ```js
 		jsdoc : {
@@ -42,7 +44,7 @@ grunt.loadNpmTasks('grunt-jsdoc');
 		}
 ```
 
-## Additional configuration
+#### Additional configuration
 
 Additional configuration can be done in the jsdoc.conf.json. It might looks like this:
 
@@ -104,7 +106,6 @@ This is mostly preserved and copied from [Ink-Docstrap](https://www.npmjs.com/pa
 ```
 
 
-
 ## Links
 | Resource   | URL |
 | :--------- | --: |
@@ -116,7 +117,7 @@ This is mostly preserved and copied from [Ink-Docstrap](https://www.npmjs.com/pa
 
 
 
-## Compatability (Tested)
+## Compatability
 | Target | Versions |
 | :----- | -------: |
 | NodeJS | 0.10 - Latest |
@@ -134,7 +135,7 @@ This is mostly preserved and copied from [Ink-Docstrap](https://www.npmjs.com/pa
 
 ## License
 
-Apache 2.0
+Apache-2.0
 
 
 ## Credits

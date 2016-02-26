@@ -9,7 +9,8 @@ module.exports = function(data, opts, tutorials) {
 		globals : {
 			helper : helper,
 			fileSupport: fileSupport,
-			markdown: markdown
+			markdown: markdown,
+			analytics: envcfg.analytics
 		},
 		paths : {
 			templateDirectores: [

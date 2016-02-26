@@ -1,1 +1,9 @@
-TODO
+<div class="list-group">
+	<?js modules.forEach(function(entry) { ?>
+		<a class="list-group-item <?js= entry == module ? 'active' : '' ?>" href="<?js= entry.link ?>">
+			<span class="toc-h1">
+				<?js= entry.name ?>
+			</span>
+		</a>
+	<?js }) ?>
+</div>

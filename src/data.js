@@ -306,6 +306,8 @@ module.exports = function(environment) {
 		helper.registerLink(doclet.longname, url);
 		url = helper.longnameToUrl[doclet.longname];
 		doclet.id = url.indexOf('#') > -1 ? url.split(/#/).pop() : doclet.name;
+		doclet.url = url;
+		doclet.link = url;
 	});
 	
 	// Fifth pass: generate ancestors

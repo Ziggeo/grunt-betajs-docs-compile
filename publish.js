@@ -54,6 +54,23 @@ exports.publish = function (data, opts, tutorials) {
 		});
 	}
 	
+	function renderModule(module, modules) {
+		render.renderPageToFile(module.link, "module", {
+			title: "Reference",
+			module: module,
+			toc: render.renderTemplate("module-toc", {
+				modules: modules,
+				module: module
+			})
+		}, true);
+	}
+	
+	function renderModules(modules) {
+		modules.forEach(function (module) {
+			renderModule(module, modules);
+		});
+	}
+	
 	renderTutorials(environment.data.tutorials, []);
 	
 	render.renderPageToFile("tutorials.html", "tutorial-single", {
@@ -65,12 +82,14 @@ exports.publish = function (data, opts, tutorials) {
 		for (var resolved in environment.data.sourceFiles) {
 			var entry = environment.data.sourceFiles[resolved];
 			render.renderPageToFile(entry.outfile, "source", {
-				title: "Source: " + entry.shortened,
+				title: "Source: " + entry.shortpath,
 				code: fileSupport.readHtmlSafe(entry.resolved)
 			}, false);
 		}
 	}
 	
+	renderModules(environment.data.members.modules);
+
 	render.renderPageToFile("modules.html", "module-single", {
 		title: "Reference",
 		modules: environment.data.members.modules

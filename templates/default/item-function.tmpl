@@ -1,10 +1,19 @@
-<p>function <strong><?js= item.id.substr(1) ?></strong>(<?js= item.params.map(function (param) { return param.name; }).join(', ') ?>)</p>
+<p>function <strong><?js= item.id.substr(1) ?></strong>(<?js= (item.params || []).map(function (param) { return param.name; }).join(', ') ?>)</p>
 <?js if (item.description) { ?>
 <div class="description">
     <?js= item.description ?>
 </div>
 <?js } ?>
 Parameters:
-<?js= render.renderTemplate('function-params', {params: item.params}) ?>
-Result:
-<?js= render.renderTemplate('function-params', {params: item.params}) ?>
+<?js= render.renderTemplate('function-params', {params: item.params || []}) ?>
+<?js if (item.returns && item.returns.length) { ?>
+Returns:
+<?js if (item.returns.length > 1) { ?><ul><?js
+    returns.forEach(function(r) { ?>
+        <li><?js= render.renderTemplate('returns', {data: r}) ?></li>
+    <?js });
+?></ul><?js } else {
+    item.returns.forEach(function(r) { ?>
+        <?js= render.renderTemplate('returns', {data: r}) ?>
+    <?js });
+} } ?>

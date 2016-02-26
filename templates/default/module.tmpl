@@ -1,1 +1,25 @@
-TODO
+<div class="col-md-8">
+	<div id="main">
+		<section class="tutorial-section">
+	
+
+        <header id="<?js= module.longname ?>">
+            <h2><?js= module.name ?></h2>
+        </header>
+        <article>
+            <?js module.modules.forEach(function(item) { ?>
+                <?js if (item.kind === 'function') { ?>
+                    <?js= render.renderTemplate('item-function', {item: item}) ?>
+                <?js } ?>
+            <?js }) ?>
+        </article>
+		
+		</section>
+		
+	</div>
+</div>		
+<div class="clearfix">
+</div>
+<div class="col-md-3">
+	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"><?js= toc ?></div>
+</div>

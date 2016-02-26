@@ -1,43 +1,38 @@
-
-<header>
-    <a href="<?js= this.urls.index ?>"><?js= this.strings.systemName ?></a>
-        <?js for (var key in this.data.pages) { ?>
-				<?js var page = this.data.pages[key]; ?>				
-				<?js if (page.first && page.navbar) { ?>
-						<a href="<?js= page.url ?>"><?js= page.title ?></a>
+<div class="navbar navbar-default navbar-fixed-top <?js= this.styling.inverseNav ? 'navbar-inverse' : '' ?>">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="<?js= this.urls.index ?>"><?js= this.strings.systemName ?></a>
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+	        </button>
+		</div>
+		<div class="navbar-collapse collapse" id="topNavigation">
+			<ul class="nav navbar-nav">
+				<?js for (var key in this.data.pages) { ?>
+					<?js var page = this.data.pages[key]; ?>				
+					<?js if (page.first && page.navbar) { ?>
+							<li><a href="<?js= page.url ?>"><?js= page.title ?></a></li>
+					<?js } ?>
 				<?js } ?>
-			<?js } ?>
-            <a href="<?js= this.config.singleTutorials ? this.urls.tutorials : this.data.tutorials.children[0].link ?>">Guides</a>
-        <?js if (this.data.members.modules.length) { ?>
-            <a href="<?js= this.config.singleModules || true ? this.urls.modules : this.data.members.modules[0].link ?>">Reference</a>
-        <?js } ?>
-        <?js for (var key in this.data.pages) { ?>
-				<?js var page = this.data.pages[key]; ?>				
-				<?js if (!page.first && page.navbar) { ?>
-						<a href="<?js= page.url ?>"><?js= page.title ?></a>
+				<li>
+					<a href="<?js= this.config.singleTutorials ? this.urls.tutorials : this.data.tutorials.children[0].link ?>">Guides</a>
+				</li>
+				<?js if (this.data.members.modules.length) { ?>			
+	                <li>
+	                    <a href="<?js= this.config.singleModules ? this.urls.modules : this.data.members.modules[0].link ?>">Reference</a>
+	                </li>
+	            <?js } ?>
+				<?js for (var key in this.data.pages) { ?>
+					<?js var page = this.data.pages[key]; ?>
+					<?js if (!page.first && page.navbar) { ?>
+						<li>
+							<a href="<?js= page.url ?>"><?js= page.title ?></a>
+						</li>
+					<?js } ?>
 				<?js } ?>
-			<?js } ?>
-</header>
-
-<style>
-body>header {
-  width: 100%;
-  display : flex;
-  padding : 0 20px;
-  background : lightsteelblue;
-}
-header a {
-  line-height : 50px;
-  padding : 0 20px;
-  margin : 0 5px;
-
-  font-size : 16px;
-  letter-spacing : .4px;
-  color : white;
-}
-header a:hover {
-    background : lightsalmon;
-    color : white;
-    text-decoration : none;
-}
-</style>
+			</ul>
+		</div>
+	</div>
+</div>

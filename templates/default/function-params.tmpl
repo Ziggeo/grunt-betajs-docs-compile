@@ -72,7 +72,7 @@
 
             <td class="type">
             <?js if (param.type && param.type.names) {?>
-                <?js= self.partial('type.tmpl', param.type.names) ?>
+                <?js= render.renderTemplate('type', {data: param.type.names}) ?>
             <?js } ?>
             </td>
 
