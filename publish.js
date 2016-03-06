@@ -6,15 +6,17 @@ exports.publish = function (data, opts, tutorials) {
 	var render = require(__dirname + "/src/render")(environment);
 	var fileSupport = require(__dirname + "/src/fileSupport");
 	
-	environment.assets.forEach(function (obj) {
-		if (typeof obj.from === "string")
-			fileSupport.copyDirectory(obj.from, obj.to);
-		else {
-			obj.from.forEach(function (file) {
-				fileSupport.copyFileToDirectory(file, obj.to);
-			});
-		}
-	});
+	if (environment.globals.copyAssets) {
+		environment.assets.forEach(function (obj) {
+			if (typeof obj.from === "string")
+				fileSupport.copyDirectory(obj.from, obj.to);
+			else {
+				obj.from.forEach(function (file) {
+					fileSupport.copyFileToDirectory(file, obj.to);
+				});
+			}
+		});
+	}
 	
 	render.renderPageToFile("index.html", "page", {
 		title: environment.strings.mainpagetitle,
@@ -27,6 +29,10 @@ exports.publish = function (data, opts, tutorials) {
 			render.renderPageToFile(page.url, "page", {
 				title: page.title,
 				content: page.content
+			});
+		} else if (page.template) {
+			render.renderPageToFile(page.url, page.template, {
+				title: page.title
 			});
 		}
 	}

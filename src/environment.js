@@ -10,7 +10,8 @@ module.exports = function(data, opts, tutorials) {
 			helper : helper,
 			fileSupport: fileSupport,
 			markdown: markdown,
-			analytics: envcfg.analytics
+			analytics: envcfg.analytics,
+			copyAssets: envcfg.copyAssets === false ? false : true
 		},
 		paths : {
 			templateDirectores: [
@@ -34,7 +35,7 @@ module.exports = function(data, opts, tutorials) {
 			footer : envcfg.footer,
 			systemName : envcfg.systemName || "Documentation",
 			readme : opts.readme,
-			mainpagetitle : opts.mainpagetitle || 'Main Page'
+			mainpagetitle : opts.mainpagetitle || 'Home'
 		},
 		styling : {
 			inverseNav : envcfg.inverseNav,
@@ -59,6 +60,7 @@ module.exports = function(data, opts, tutorials) {
 		},
 		data : {
 			pages: env.conf.pages || {}
-		} 
+		},
+		custom: env.conf.custom || {}
 	};
 };

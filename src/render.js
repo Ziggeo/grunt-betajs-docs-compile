@@ -48,9 +48,10 @@ module.exports = function (environment) {
 		 */
 		renderPage: function (templateName, data) {
 			return this.renderTemplate("layout", _.extend({
-				header: this.renderTemplate("header"),
-				footer: this.renderTemplate("footer"),
-				main: this.renderTemplate(templateName, data)
+				header: this.renderTemplate("header", data),
+				footer: this.renderTemplate("footer", data),
+				main: this.renderTemplate(templateName, data),
+				template_name: templateName				
 			}, data));
 		},
 		
@@ -64,6 +65,7 @@ module.exports = function (environment) {
 		 * @return {string} content of rendered template within the layout
 		 */
 		renderPageToFile: function (fileName, templateName, data, resolveLinks) {
+			data.file_name = fileName;
 			var rendered = this.renderPage(templateName, data);
 			if (resolveLinks)
 				rendered = environment.globals.helper.resolveLinks(rendered);

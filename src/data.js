@@ -77,10 +77,10 @@ function processTutorials(environment, hierarchy, tutorials, emptyTutorials) {
  */
 
 function processPage(environment, page, key) {
-	if (page.source) {
+	if (page.source) 	
 		page.content = environment.globals.markdown.getParser()(environment.globals.fileSupport.readFile(page.source));
+	if (page.source || page.template)
 		page.url = environment.globals.helper.getUniqueFilename(key);
-	}
 	return page;
 }
 
