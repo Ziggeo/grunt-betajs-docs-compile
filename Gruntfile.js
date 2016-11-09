@@ -16,14 +16,14 @@ module.exports = function(grunt) {
     
     /* Markdown Files */
 	.readmeTask(null, {
-		installdoc: "./docsrc/tutorials/install.md"
+		installdoc: "./docsrc/tutorials/install-docs-compile.md"
 	})
     .licenseTask()
     
     /* Documentation */
     .docsTask(null, {
     	internal: true,
-    	installdoc: "./docsrc/tutorials/install.md"
+    	installdoc: "./docsrc/tutorials/install-docs-compile.md"
     });
 
 	grunt.initConfig(gruntHelper.config);	

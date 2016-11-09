@@ -9,7 +9,7 @@
                     <h1><?js= entry.name ?></h1>
                 </header>
                 <article>
-                    <?js entry.modules.forEach(function(item) { ?>
+                    <?js (entry.modules || []).forEach(function(item) { ?>
                         <?js if (item.kind === 'function') { ?>
                             <?js= render.renderTemplate('item-function', {item: item}) ?>
                         <?js } ?>

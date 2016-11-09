@@ -1,4 +1,4 @@
-# grunt-betajs-docs-compile 0.0.16
+# grunt-betajs-docs-compile 0.0.18
 [![Code Climate](https://codeclimate.com/github/betajs/grunt-betajs-docs-compile/badges/gpa.svg)](https://codeclimate.com/github/betajs/grunt-betajs-docs-compile)
 
 
@@ -127,11 +127,10 @@ This is mostly preserved and copied from [Ink-Docstrap](https://www.npmjs.com/pa
 
 
 
-## Contributors
+## Main Contributors
 
 - Oliver Friedmann
 - Victor Lingenthal
-
 
 ## License
 
@@ -142,3 +141,8 @@ Apache-2.0
 
 This software may include modified and unmodified portions of:
 - [Ink-Docstrap](https://www.npmjs.com/package/ink-docstrap)
+
+
+
+
+
