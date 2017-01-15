@@ -1,4 +1,70 @@
 (function($) {
+	$.fn.maketoc = function(toc, options) {
+		var element = this;
+		options = options || {};
+		var entryTemplate = options.entryTemplate || function (entry, level) {
+			return '<a class="list-group-item" data-toc-level="' + level + '" href="' + entry.link
+					+ '" ' + (entry.collapsed ? 'style="display:none"' : '') + '><span class="toc-h' + level + '">'
+					+ entry.title + '</span></a>';
+		};
+		var createLevel = function(toc, level) {
+			toc.forEach(function(entry) {
+				var entryElement = $(entryTemplate(entry, level));
+				element.append(entryElement);
+				createLevel(entry.children, level + 1);
+			});
+		};
+		createLevel(toc, 1);
+	};
+	$.fn.toccontrol = function (action) {
+		var actions = {
+			expand: function (link, children) {
+				var base = $(this).find("[href='" + link + "']");
+				var base_level = parseInt(base.data("toc-level"));
+				var current = base;
+				while (current.data("toc-level") && parseInt(current.data("toc-level")) >= 1) {
+					current.show();
+					current = current.prev();
+				}
+				if (children) {
+					current = base.next();
+					while (current.data('toc-level') && parseInt(current.data("toc-level")) === base_level + 1) {
+						current.show();
+						current = current.next();
+					}
+				}
+			},
+			collapse: function (link, children) {
+				var current = $(this).find("[href='" + link + "']");
+				var base = $(this).find("[href='" + link + "']");
+				var base_level = parseInt(base.data("toc-level"));
+				var current = base;
+				current = base.next();
+				while (current.data('toc-level') && parseInt(current.data("toc-level")) > base_level) {
+					current.hide();
+					current = current.next();
+				}
+				if (!children)
+					base.hide();
+			}
+		};
+		actions[action].apply(this, Array.prototype.slice.call(arguments, 1));
+	};
+})(jQuery);
+
+
+/*
+ * Selection
+ * Auto-Collapse
+ * Multi Tutorial
+ * TOC Filter?
+ * 
+ * 
+ */
+/************************/
+
+
+(function($) {
   var navbarHeight;
   var initialised = false;
   var navbarOffset;

@@ -1,5 +1,6 @@
-# grunt-betajs-docs-compile 0.0.18
+# grunt-betajs-docs-compile 0.0.19
 [![Code Climate](https://codeclimate.com/github/betajs/grunt-betajs-docs-compile/badges/gpa.svg)](https://codeclimate.com/github/betajs/grunt-betajs-docs-compile)
+[![NPM](https://img.shields.io/npm/v/grunt-betajs-docs-compile.svg?style=flat)](https://www.npmjs.com/package/grunt-betajs-docs-compile)
 
 
 Build BetaJS documentations based on JSDOC.
@@ -111,9 +112,10 @@ This is mostly preserved and copied from [Ink-Docstrap](https://www.npmjs.com/pa
 | :--------- | --: |
 | Homepage   | [http://betajs.com](http://betajs.com) |
 | Git        | [git://github.com/betajs/grunt-betajs-docs-compile.git](git://github.com/betajs/grunt-betajs-docs-compile.git) |
-| Repository | [http://github.com/betajs/grunt-betajs-docs-compile](http://github.com/betajs/grunt-betajs-docs-compile) |
+| Repository | [https://github.com/betajs/grunt-betajs-docs-compile](https://github.com/betajs/grunt-betajs-docs-compile) |
 | Blog       | [http://blog.betajs.com](http://blog.betajs.com) | 
 | Twitter    | [http://twitter.com/thebetajs](http://twitter.com/thebetajs) | 
+ 
 
 
 

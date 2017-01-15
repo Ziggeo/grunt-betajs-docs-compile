@@ -16,7 +16,7 @@
     },
     "name": "grunt-betajs-docs-compile",
     "description": "Build BetaJS documentations based on JSDOC.",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "contributors": [
         "Oliver Friedmann",
         "Victor Lingenthal"
@@ -32,8 +32,9 @@
         "grunt-jsdoc": "",
         "grunt-template": "",
         "grunt-contrib-clean": "",
-        "betajs-compile": "betajs/betajs-compile"
+        "betajs-compile": "~0.0.28"
     },
+    "main": "publish.js",
     "peerDependencies": {
         "grunt": ""
     },
@@ -49,7 +50,7 @@
         "badges": {
             "codeclimate": true,
             "travis": false,
-            "npm": false
+            "npm": true
         },
         "installdoc": "docsrc/common/install.md",
         "summarydoc": "docsrc/common/summary.md",

@@ -189,7 +189,7 @@ function processSignatures(helper, doclet) {
 				needsSignature = true;
 	if (needsSignature) {
 		doclet.signature = {
-			params: helper.getSignatureParams(doclet, 'optionalå'),
+			params: helper.getSignatureParams(doclet, 'optional'),
 			returns: helper.getSignatureReturns(doclet),
 			attribs: helper.getAttribs(doclet)
 		};
@@ -206,7 +206,7 @@ function processSignatures(helper, doclet) {
 
 /*
  * 
- * Attach module symbols (not sure what this good for exactly)
+ * Attach module symbols (not sure what this is good for exactly)
  * 
  * 
  */
@@ -236,7 +236,7 @@ function attachModuleSymbols( doclets, modules ) {
                     if (symbol.kind === 'class' || symbol.kind === 'function') {
                         symbol.name = symbol.name.replace('module:', '(require("') + '"))';
                     }
-
+                    
                     return symbol;
                 });
         }
@@ -320,9 +320,28 @@ module.exports = function(environment) {
 		processSignatures(helper, doclet);
 	});
 	
+	// Seventh pass: generates namespaces for modules, classes and mixins
+	environment.data.namespace = {children: {}, parent:null};
+	processed().each(function (doclet) {
+		if (doclet.kind !== "module" && doclet.kind !== "class" && doclet.kind !== "mixin")
+			return;
+		if (doclet.memberof) {
+			var current = environment.data.namespace;
+			doclet.memberof.split(".").forEach(function (ns) {
+				if (!current.children[ns]) {
+					current.children[ns] = {
+						children: {},
+						parent: current
+					};
+				}
+				current = current.children[ns]; 
+			});
+			doclet.namespace = current;
+		}
+	});
+	
 	var members = helper.getMembers(processed);
 	environment.data.members = members;
-	
 	attachModuleSymbols(helper.find(processed,  { kind : ['class', 'function'] } ), members.modules );
 	
 };

@@ -30,17 +30,20 @@
 </div>
 
 <div class="col-md-3">
-	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+	<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"><div class="list-group"></div></div>
 </div>
 
 <script>
-	$( "#toc" ).toc( {
-		anchorName  : function ( i, heading, prefix ) {
-			var id = $( heading ).attr( "id" );
-			return id && id.replace(/\~/g, '-inner-').replace(/\./g, '-static-') || ( prefix + i );
-		},
-		selectors   : "#toc-content header>h1,#toc-content header>h2,#toc-content header>h3,#toc-content header>h4",
-		showAndHide : false,
-		smoothScrolling: true
-	} );
+	<?js
+		var generate = function (tutorials) {
+			return (tutorials || []).map(function (tutorial) {
+				return {
+					title: tutorial.title,
+					link: "#" + tutorial.name,
+					children: generate(tutorial.children)
+				};
+			});
+		};
+	?>
+	$("#toc").children().maketoc(<?js= JSON.stringify(generate(tutorials.children)) ?>);
 </script>
