@@ -29,11 +29,16 @@
 	"engines": {
 		"node": ""
 	},
+	"scripts": {
+		"relink": "npm link betajs-compile",
+		"reinstall": "rm -f package-lock.json && rm -rf node_modules && npm i && npm run relink"
+	},
 	"meta": {
 		"badges": {
 			"codeclimate": true,
 			"travis": false,
-			"npm": true
+			"npm": true,
+			"gitter": true
 		},
 		"installdoc": "docsrc/common/install.md",
 		"summarydoc": "docsrc/common/summary.md",
@@ -41,7 +46,7 @@
 			"[Ink-Docstrap](https://www.npmjs.com/package/ink-docstrap)"
 		],
 		"compatability": {
-			"NodeJS": "0.10 - Latest"
+			"NodeJS": "4.0 - Latest"
 		}
 	}
 }

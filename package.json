@@ -25,6 +25,10 @@
         "type": "git",
         "url": "git://github.com/betajs/grunt-betajs-docs-compile.git"
     },
+    "scripts": {
+        "relink": "npm link betajs-compile",
+        "reinstall": "rm -f package-lock.json && rm -rf node_modules && npm i && npm run relink"
+    },
     "devDependencies": {
         "lodash": "",
         "grunt": "",
